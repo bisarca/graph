@@ -1,0 +1,32 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Bisarca\\Graph\\": "src/Bisarca/Graph/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Bisarca\\Graph\\": "tests/Bisarca/Graph/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "description": "Graph Component",
+    "license": "MIT",
+    "name": "bisarca/graph",
+    "require": {
+        "php": "^7.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^1.12",
+        "phpunit/phpunit": "^5.5",
+        "symfony/phpunit-bridge": "^3.1"
+    },
+    "scripts": {
+        "test": [
+            "php-cs-fixer fix -vv --ansi",
+            "phpunit --colors=always"
+        ]
+    }
+}

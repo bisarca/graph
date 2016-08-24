@@ -11,6 +11,8 @@
 
 namespace Bisarca\Graph\Graph\Descriptor;
 
+use Bisarca\Graph\Edge\Set as EdgeSet;
+use Bisarca\Graph\Vertex\Set as VertexSet;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -26,10 +28,30 @@ class DegreeTraitTest extends TestCase
     protected $object;
 
     /**
+     * @var EdgeSet
+     */
+    protected $edgeSet;
+
+    /**
+     * @var VertexSet
+     */
+    protected $vertexSet;
+
+    /**
      * {@inheritdoc}
      */
     protected function setUp()
     {
         $this->object = $this->getMockForTrait(DegreeTrait::class);
+        $this->edgeSet = new EdgeSet();
+        $this->vertexSet = new VertexSet();
+
+        $this->object
+            ->method('getEdgeSet')
+            ->willReturn($this->edgeSet);
+
+        $this->object
+            ->method('getVertexSet')
+            ->willReturn($this->vertexSet);
     }
 }

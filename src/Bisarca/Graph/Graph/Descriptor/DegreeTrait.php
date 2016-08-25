@@ -146,4 +146,93 @@ trait DegreeTrait
     {
         return (count($this->getVertexSet()) - 1) === $this->getVertexDegree($vertex);
     }
+
+    /**
+     * Gets graph degree.
+     *
+     * @throws DegreeException If the graph isn't k-regular
+     * @throws DegreeException If the graph doesn't contain vertices
+     *
+     * @return int
+     */
+    public function getDegree(): int
+    {
+        $graphDegree = null;
+
+        foreach ($this->getVertexSet() as $vertex) {
+            $vertexDegree = $this->getVertexDegree($vertex);
+
+            if (null === $graphDegree) {
+                $graphDegree = $vertexDegree;
+            }
+
+            if ($vertexDegree !== $graphDegree) {
+                throw DegreeException::createForNotRegular($graphDegree, $vertexDegree);
+            }
+        }
+
+        if (null === $graphDegree) {
+            throw DegreeException::createForEmpty();
+        }
+
+        return $graphDegree;
+    }
+
+    /**
+     * Checks if the graph is regular.
+     *
+     * @return bool
+     */
+    public function isRegular(): bool
+    {
+        try {
+            $this->getDegree();
+
+            return true;
+        } catch (DegreeException $exception) {
+            return false;
+        }
+    }
+
+    /**
+     * Has a defined regularity.
+     *
+     * @param int $regularity
+     *
+     * @return bool
+     */
+    public function hasRegularity(int $regularity): bool
+    {
+        try {
+            return $regularity === $this->getDegree();
+        } catch (DegreeException $exception) {
+            return false;
+        }
+    }
+
+    /**
+     * Checks if all the vertices have the same value for in-degree and out-degree.
+     *
+     * @return bool
+     */
+    public function isBalanced(): bool
+    {
+        $balanced = true;
+
+        foreach ($this->getVertexSet() as $vertex) {
+            $balanced = $balanced && $this->getVertexInDegree($vertex) === $this->getVertexOutDegree($vertex);
+        }
+
+        return $balanced;
+    }
+
+    /**
+     * Checks if a graph is cubid.
+     *
+     * @return bool
+     */
+    public function isCubic(): bool
+    {
+        return $this->hasRegularity(3);
+    }
 }

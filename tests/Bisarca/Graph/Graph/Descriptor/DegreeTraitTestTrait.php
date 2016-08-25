@@ -229,6 +229,122 @@ trait DegreeTraitTestTrait
         $this->assertTrue($this->object->isDominatingVertex($vertex));
     }
 
+    public function testGetDegree()
+    {
+        $vertex1 = $this->createMock(VertexInterface::class);
+        $vertex2 = $this->createMock(VertexInterface::class);
+        $this->addVertices($vertex1, $vertex2);
+
+        $this->assertSame(0, $this->object->getDegree());
+
+        $this->addEdges(new Edge($vertex1, $vertex2));
+        $this->assertSame(1, $this->object->getDegree());
+    }
+
+    /**
+     * @depends testGetDegree
+     */
+    public function testGetDegreeFromNotRegularGraph()
+    {
+        $vertex1 = $this->createMock(VertexInterface::class);
+        $vertex2 = $this->createMock(VertexInterface::class);
+        $this->addVertices($vertex1, $vertex2);
+        $this->addEdges(new Edge($vertex2));
+
+        $this->expectException(DegreeException::class);
+        $this->expectExceptionMessageRegExp(
+            '/^Graph is not regular \(e\.g\. \d+ and \d+\)\.$/'
+        );
+
+        $this->object->getDegree();
+    }
+
+    /**
+     * @depends testGetDegree
+     * @expectedException Bisarca\Graph\Graph\Descriptor\DegreeException
+     * @expectedExceptionMessage Graph is empty.
+     */
+    public function testGetDegreeFromEmptyGraph()
+    {
+        $this->object->getDegree();
+    }
+
+    /**
+     * @depends testGetDegree
+     */
+    public function testIsRegular()
+    {
+        $this->assertFalse($this->object->isRegular());
+
+        $vertex1 = $this->createMock(VertexInterface::class);
+        $this->addVertices($vertex1);
+        $this->assertTrue($this->object->isRegular());
+
+        $vertex2 = $this->createMock(VertexInterface::class);
+        $this->addVertices($vertex2);
+        $this->addEdges(new Edge($vertex2));
+
+        $this->assertFalse($this->object->isRegular());
+    }
+
+    /**
+     * @depends testGetDegree
+     */
+    public function testHasRegularity()
+    {
+        $vertex1 = $this->createMock(VertexInterface::class);
+        $vertex2 = $this->createMock(VertexInterface::class);
+
+        $this->addVertices($vertex1, $vertex2);
+        $this->assertTrue($this->object->hasRegularity(0));
+        $this->assertFalse($this->object->hasRegularity(1));
+
+        $this->addEdges(new Edge($vertex1, $vertex2));
+        $this->assertFalse($this->object->hasRegularity(0));
+        $this->assertTrue($this->object->hasRegularity(1));
+
+        $this->addEdges(new Edge($vertex2));
+        $this->assertFalse($this->object->hasRegularity(0));
+        $this->assertFalse($this->object->hasRegularity(1));
+    }
+
+    /**
+     * @depends testHasRegularity
+     */
+    public function testIsCubic()
+    {
+        $vertex1 = $this->createMock(VertexInterface::class);
+        $vertex2 = $this->createMock(VertexInterface::class);
+
+        $this->addVertices($vertex1, $vertex2);
+
+        $this->addEdges(new Edge($vertex1, $vertex2));
+        $this->addEdges(new Edge($vertex1, $vertex1));
+        $this->addEdges(new Edge($vertex2, $vertex2));
+        $this->assertTrue($this->object->isCubic());
+
+        $this->addEdges(new Edge($vertex1, $vertex1));
+        $this->assertFalse($this->object->isCubic());
+    }
+
+    public function testIsBalanced()
+    {
+        $this->assertTrue($this->object->isBalanced());
+
+        $vertex1 = $this->createMock(VertexInterface::class);
+        $this->addVertices($vertex1);
+        $this->assertTrue($this->object->isBalanced());
+
+        $vertex2 = $this->createMock(VertexInterface::class);
+        $this->addVertices($vertex2);
+        $this->addEdges(new Edge($vertex2, $vertex2));
+
+        $this->assertTrue($this->object->isBalanced());
+
+        $this->addEdges(new Edge($vertex2));
+        $this->assertFalse($this->object->isBalanced());
+    }
+
     private function addVertices(VertexInterface ...$vertices)
     {
         if (isset($this->vertexSet)) {

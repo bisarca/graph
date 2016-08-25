@@ -11,7 +11,6 @@
 
 namespace Bisarca\Graph;
 
-use ArrayIterator;
 use Bisarca\Graph\Attribute\AttributeAwareInterface;
 use Bisarca\Graph\Attribute\AttributeAwareTrait;
 use Countable;
@@ -47,7 +46,7 @@ abstract class AbstractSet implements AttributeAwareInterface, Countable, Iterat
      */
     public function getIterator(): Traversable
     {
-        return new ArrayIterator($this->data);
+        yield from $this->data;
     }
 
     /**

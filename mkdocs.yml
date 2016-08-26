@@ -3,5 +3,5 @@ extra_javascript:
 google_analytics: ['UA-82655257-3', 'graph.readthedocs.io']
 repo_url: https://github.com/bisarca/graph
 site_description: 'Bisarca graphs Management'
-site_favicon: https://avatars2.githubusercontent.com/u/20471322?v=3&s=16
+site_favicon: favicon.ico
 site_name: 'bisarca/graph'

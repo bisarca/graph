@@ -17,6 +17,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers Bisarca\Graph\Graph\Descriptor\DegreeTrait
+ * @group unit
  */
 class DegreeTraitTest extends TestCase
 {

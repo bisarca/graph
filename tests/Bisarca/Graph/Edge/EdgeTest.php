@@ -18,6 +18,7 @@ use ReflectionProperty;
 
 /**
  * @covers Bisarca\Graph\Edge\Edge
+ * @group unit
  */
 class EdgeTest extends TestCase
 {

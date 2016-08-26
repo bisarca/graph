@@ -16,6 +16,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers Bisarca\Graph\Vertex\Vertex
+ * @group unit
  */
 class VertexTest extends TestCase
 {

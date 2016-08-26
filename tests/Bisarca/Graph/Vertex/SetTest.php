@@ -16,6 +16,7 @@ use ReflectionProperty;
 
 /**
  * @covers Bisarca\Graph\Vertex\Set
+ * @group unit
  */
 class SetTest extends AbstractSetTest
 {

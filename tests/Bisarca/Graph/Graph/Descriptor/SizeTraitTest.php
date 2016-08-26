@@ -16,6 +16,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers Bisarca\Graph\Graph\Descriptor\SizeTrait
+ * @group unit
  */
 class SizeTraitTest extends TestCase
 {

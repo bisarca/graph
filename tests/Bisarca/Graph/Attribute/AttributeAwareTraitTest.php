@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers Bisarca\Graph\Attribute\AttributeAwareTrait
+ * @group unit
  */
 class AttributeAwareTraitTest extends TestCase
 {

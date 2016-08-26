@@ -25,6 +25,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers Bisarca\Graph\Graph
+ * @group unit
  */
 class GraphTest extends TestCase
 {

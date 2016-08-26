@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers Bisarca\Graph\Edge\SetTrait
+ * @group unit
  */
 class SetTraitTest extends TestCase
 {

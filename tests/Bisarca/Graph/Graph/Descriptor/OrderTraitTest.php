@@ -16,6 +16,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers Bisarca\Graph\Graph\Descriptor\OrderTrait
+ * @group unit
  */
 class OrderTraitTest extends TestCase
 {

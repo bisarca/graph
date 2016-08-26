@@ -16,6 +16,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers Bisarca\Graph\Graph\Descriptor\LoopTrait
+ * @group unit
  */
 class LoopTraitTest extends TestCase
 {

@@ -18,6 +18,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers Bisarca\Graph\Graph\Descriptor\DegreeException
+ * @group unit
  */
 class DegreeExceptionTest extends TestCase
 {

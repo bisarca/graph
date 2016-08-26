@@ -227,7 +227,7 @@ trait DegreeTrait
     }
 
     /**
-     * Checks if a graph is cubid.
+     * Checks if a graph is cubic.
      *
      * @return bool
      */

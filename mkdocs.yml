@@ -1,3 +1,5 @@
+extra_javascript:
+  - 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
 google_analytics: ['UA-82655257-3', 'graph.readthedocs.io']
 repo_url: https://github.com/bisarca/graph
 site_description: 'Bisarca graphs Management'

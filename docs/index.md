@@ -13,7 +13,7 @@ This library uses three main classes as defined in the Graph definition.
 Graph
 -----
 
-A graph is an ordered pair of vertices and edges `G = (V,E)`.
+A graph is an ordered pair of vertices and edges \\(G = (V,E)\\).
 
 ```php
 use Bisarca\Graph\Edge\Set as Edges;
@@ -21,11 +21,13 @@ use Bisarca\Graph\Graph;
 use Bisarca\Graph\Vertex\Set as Vertices;
 
 $vertices = new Vertices();
-$edges = new Vertices();
+$edges = new Edges();
 
 // $graph = new Graph();
 $graph = new Graph($vertices, $edges);
 ```
+
+[Read more](graph.md).
 
 
 Vertex
@@ -82,3 +84,4 @@ class DirectoryEdge extends Edge {}
 class DirectoryEdge implements EdgeInterface {}
 ```
 
+[Read more](edge.md).

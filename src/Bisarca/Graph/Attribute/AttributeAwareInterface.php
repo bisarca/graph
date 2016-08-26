@@ -67,5 +67,5 @@ interface AttributeAwareInterface
      *
      * @return bool
      */
-    public function hasAttributes(): bool;
+    public function isEmptyAttributes(): bool;
 }

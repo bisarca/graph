@@ -74,7 +74,7 @@ trait AttributeAwareTrait
     /**
      * {@inheritdoc}
      */
-    public function hasAttributes(): bool
+    public function isEmptyAttributes(): bool
     {
         return !empty($this->attributes);
     }

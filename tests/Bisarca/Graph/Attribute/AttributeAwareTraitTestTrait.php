@@ -123,11 +123,11 @@ trait AttributeAwareTraitTestTrait
     /**
      * @depends testSetAttribute
      */
-    public function testHasAttributes()
+    public function testIsEmptyAttributes()
     {
-        $this->assertFalse($this->object->hasAttributes());
+        $this->assertFalse($this->object->isEmptyAttributes());
 
         $this->object->setAttribute(mt_rand(), mt_rand());
-        $this->assertTrue($this->object->hasAttributes());
+        $this->assertTrue($this->object->isEmptyAttributes());
     }
 }

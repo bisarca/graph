@@ -13,6 +13,9 @@ namespace Bisarca\Graph\Edge\Descriptor;
 
 use Bisarca\Graph\Vertex\VertexInterface;
 
+/**
+ * Descriptor used to check if and Edge is a loop.
+ */
 trait LoopTrait
 {
     /**

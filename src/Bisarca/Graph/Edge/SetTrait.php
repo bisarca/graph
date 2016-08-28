@@ -12,10 +12,15 @@
 namespace Bisarca\Graph\Edge;
 
 /**
- * ...
+ * Utilities to interact with the edges set from the Graph object.
  */
 trait SetTrait
 {
+    /**
+     * Gets the edges set.
+     *
+     * @return EdgeSet
+     */
     abstract public function getEdgeSet(): Set;
 
     /**
@@ -91,7 +96,9 @@ trait SetTrait
     }
 
     /**
-     * {@inheritdoc}
+     * Counts the number of edges.
+     *
+     * @return int
      */
     public function countEdges(): int
     {

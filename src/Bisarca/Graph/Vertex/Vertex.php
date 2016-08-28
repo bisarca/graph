@@ -15,7 +15,7 @@ use Bisarca\Graph\Attribute\AttributeAwareInterface;
 use Bisarca\Graph\Attribute\AttributeAwareTrait;
 
 /**
- * ...
+ * Basic vertex element implementation.
  */
 class Vertex implements VertexInterface, AttributeAwareInterface
 {

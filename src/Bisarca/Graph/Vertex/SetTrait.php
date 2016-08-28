@@ -12,10 +12,15 @@
 namespace Bisarca\Graph\Vertex;
 
 /**
- * ...
+ * Utilities to interact with the vertices set from the Graph object.
  */
 trait SetTrait
 {
+    /**
+     * Gets the vertices set.
+     *
+     * @return Set
+     */
     abstract public function getVertexSet(): Set;
 
     /**
@@ -91,7 +96,9 @@ trait SetTrait
     }
 
     /**
-     * {@inheritdoc}
+     * Gets the number of contained vertices.
+     *
+     * @return int
      */
     public function countVertices(): int
     {

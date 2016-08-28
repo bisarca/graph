@@ -12,9 +12,13 @@
 namespace Bisarca\Graph\Graph\Descriptor;
 
 use Bisarca\Graph\Edge\Set as EdgeSet;
+use Bisarca\Graph\Graph\Exception\DegreeException;
 use Bisarca\Graph\Vertex\Set as VertexSet;
 use Bisarca\Graph\Vertex\VertexInterface;
 
+/**
+ * Utilities related to vertex and graph degree.
+ */
 trait DegreeTrait
 {
     /**

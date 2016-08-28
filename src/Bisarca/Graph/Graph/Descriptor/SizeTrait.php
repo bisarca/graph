@@ -13,6 +13,9 @@ namespace Bisarca\Graph\Graph\Descriptor;
 
 use Bisarca\Graph\Edge\Set;
 
+/**
+ * Descriptor used to get the size of a Graph.
+ */
 trait SizeTrait
 {
     /**

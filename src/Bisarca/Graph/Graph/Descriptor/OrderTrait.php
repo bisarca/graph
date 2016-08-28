@@ -13,6 +13,9 @@ namespace Bisarca\Graph\Graph\Descriptor;
 
 use Bisarca\Graph\Vertex\Set;
 
+/**
+ * Descriptor used to get the order of a Graph.
+ */
 trait OrderTrait
 {
     /**

@@ -12,7 +12,7 @@
 namespace Bisarca\Graph\Vertex;
 
 /**
- * ...
+ * Generic vertex interface.
  */
 interface VertexInterface
 {

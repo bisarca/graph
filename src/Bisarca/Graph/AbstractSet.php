@@ -42,7 +42,9 @@ abstract class AbstractSet implements AttributeAwareInterface, Countable, Iterat
     }
 
     /**
-     * {@inheritdoc}
+     * Retrieves an external iterator.
+     *
+     * @return Traversable
      */
     public function getIterator(): Traversable
     {
@@ -68,7 +70,9 @@ abstract class AbstractSet implements AttributeAwareInterface, Countable, Iterat
     }
 
     /**
-     * {@inheritdoc}
+     * Counts the number of contained elements.
+     *
+     * @return int
      */
     public function count(): int
     {

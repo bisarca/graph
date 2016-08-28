@@ -13,6 +13,9 @@ namespace Bisarca\Graph\Exception;
 
 use Throwable;
 
+/**
+ * Generic library exception.
+ */
 interface ExceptionInterface extends Throwable
 {
 }

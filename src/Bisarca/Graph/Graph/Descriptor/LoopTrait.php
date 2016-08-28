@@ -14,6 +14,9 @@ namespace Bisarca\Graph\Graph\Descriptor;
 use Bisarca\Graph\Edge\Set;
 use Bisarca\Graph\Vertex\VertexInterface;
 
+/**
+ * Utility to detect loops from a Graph.
+ */
 trait LoopTrait
 {
     /**

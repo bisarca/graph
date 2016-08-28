@@ -9,15 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Bisarca\Graph\Graph\Descriptor;
+namespace Bisarca\Graph\Graph\Exception;
 
-use Bisarca\Graph\Exception\GraphExceptionInterface;
 use Exception;
 
 /**
  * Exception for degrees related method.
  */
-class DegreeException extends Exception implements GraphExceptionInterface
+class DegreeException extends Exception implements ExceptionInterface
 {
     /**
      * Creates an exception for not regular graphs.

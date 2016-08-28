@@ -13,6 +13,7 @@ namespace Bisarca\Graph\Graph\Descriptor;
 
 use Bisarca\Graph\Edge\Edge;
 use Bisarca\Graph\Edge\EdgeInterface;
+use Bisarca\Graph\Graph\Exception\DegreeException;
 use Bisarca\Graph\Vertex\VertexInterface;
 
 trait DegreeTraitTestTrait
@@ -261,7 +262,7 @@ trait DegreeTraitTestTrait
 
     /**
      * @depends testGetDegree
-     * @expectedException Bisarca\Graph\Graph\Descriptor\DegreeException
+     * @expectedException Bisarca\Graph\Graph\Exception\DegreeException
      * @expectedExceptionMessage Graph is empty.
      */
     public function testGetDegreeFromEmptyGraph()

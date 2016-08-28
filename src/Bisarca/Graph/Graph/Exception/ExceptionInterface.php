@@ -9,8 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Bisarca\Graph\Exception;
+namespace Bisarca\Graph\Graph\Exception;
 
-interface GraphExceptionInterface extends ExceptionInterface
+use Bisarca\Graph\Exception\ExceptionInterface as BaseExceptionInterface;
+
+/**
+ * Generic exceptions related to library Graph.
+ */
+interface ExceptionInterface extends BaseExceptionInterface
 {
 }

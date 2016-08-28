@@ -9,15 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Bisarca\Graph\Graph\Descriptor;
+namespace Bisarca\Graph\Graph\Exception;
 
-use Bisarca\Graph\Exception\ExceptionInterface;
-use Bisarca\Graph\Exception\GraphExceptionInterface;
-use Bisarca\Graph\Graph;
+use Bisarca\Graph\Exception\ExceptionInterface as BaseExceptionInterface;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers Bisarca\Graph\Graph\Descriptor\DegreeException
+ * @covers Bisarca\Graph\Graph\Exception\DegreeException
  * @group unit
  */
 class DegreeExceptionTest extends TestCase
@@ -31,8 +29,8 @@ class DegreeExceptionTest extends TestCase
             $vertexDegree
         );
 
+        $this->assertInstanceOf(BaseExceptionInterface::class, $exception);
         $this->assertInstanceOf(ExceptionInterface::class, $exception);
-        $this->assertInstanceOf(GraphExceptionInterface::class, $exception);
 
         $this->expectException('Exception');
         $this->expectExceptionMessage(sprintf(
@@ -48,8 +46,8 @@ class DegreeExceptionTest extends TestCase
     {
         $exception = DegreeException::createForEmpty();
 
+        $this->assertInstanceOf(BaseExceptionInterface::class, $exception);
         $this->assertInstanceOf(ExceptionInterface::class, $exception);
-        $this->assertInstanceOf(GraphExceptionInterface::class, $exception);
 
         $this->expectException('Exception');
         $this->expectExceptionMessage('Graph is empty.');

@@ -21,12 +21,12 @@ interface EdgeInterface
     /**
      * Constructor for (optional) edge' vertices initialization.
      *
-     * @param VertexInterface|null $vertexStart
-     * @param VertexInterface|null $vertexEnd
+     * @param VertexInterface|null $source
+     * @param VertexInterface|null $target
      */
     public function __construct(
-        VertexInterface $vertexStart = null,
-        VertexInterface $vertexEnd = null
+        VertexInterface $source = null,
+        VertexInterface $target = null
     );
 
     /**
@@ -34,40 +34,40 @@ interface EdgeInterface
      *
      * @return bool
      */
-    public function hasVertexStart(): bool;
+    public function hasSource(): bool;
 
     /**
      * Gets the starting vertex.
      *
      * @return VertexInterface
      */
-    public function getVertexStart(): VertexInterface;
+    public function getSource(): VertexInterface;
 
     /**
      * Sets the starting vertex.
      *
-     * @param VertexInterface $vertexStart
+     * @param VertexInterface $source
      */
-    public function setVertexStart(VertexInterface $vertexStart);
+    public function setSource(VertexInterface $source);
 
     /**
      * Checks if the edge has an ending vertex.
      *
      * @return bool
      */
-    public function hasVertexEnd(): bool;
+    public function hasTarget(): bool;
 
     /**
      * Gets the ending vertex.
      *
      * @return VertexInterface
      */
-    public function getVertexEnd(): VertexInterface;
+    public function getTarget(): VertexInterface;
 
     /**
      * Sets the ending vertex.
      *
-     * @param VertexInterface $vertexEnd
+     * @param VertexInterface $target
      */
-    public function setVertexEnd(VertexInterface $vertexEnd);
+    public function setTarget(VertexInterface $target);
 }

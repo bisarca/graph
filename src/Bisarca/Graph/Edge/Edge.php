@@ -31,71 +31,71 @@ class Edge implements EdgeInterface, AttributeAwareInterface, IdentifierAwareInt
      *
      * @var VertexInterface|null
      */
-    private $vertexStart;
+    private $source;
 
     /**
      * Ending vertex.
      *
      * @var VertexInterface|null
      */
-    private $vertexEnd;
+    private $target;
 
     /**
      * {@inheritdoc}
      */
     public function __construct(
-        VertexInterface $vertexStart = null,
-        VertexInterface $vertexEnd = null
+        VertexInterface $source = null,
+        VertexInterface $target = null
     ) {
-        $this->vertexStart = $vertexStart;
-        $this->vertexEnd = $vertexEnd;
+        $this->source = $source;
+        $this->target = $target;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function hasVertexStart(): bool
+    public function hasSource(): bool
     {
-        return null !== $this->vertexStart;
+        return null !== $this->source;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getVertexStart(): VertexInterface
+    public function getSource(): VertexInterface
     {
-        return $this->vertexStart;
+        return $this->source;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setVertexStart(VertexInterface $vertexStart)
+    public function setSource(VertexInterface $source)
     {
-        $this->vertexStart = $vertexStart;
+        $this->source = $source;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function hasVertexEnd(): bool
+    public function hasTarget(): bool
     {
-        return null !== $this->vertexEnd;
+        return null !== $this->target;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getVertexEnd(): VertexInterface
+    public function getTarget(): VertexInterface
     {
-        return $this->vertexEnd;
+        return $this->target;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setVertexEnd(VertexInterface $vertexEnd)
+    public function setTarget(VertexInterface $target)
     {
-        $this->vertexEnd = $vertexEnd;
+        $this->target = $target;
     }
 }

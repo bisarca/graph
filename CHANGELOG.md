@@ -5,6 +5,7 @@ All Notable changes to `bisarca/graph` will be documented in this file.
 
 ### Added
 - edges, vertices, graph and sets identification using `Bisarca\Graph\Identifier\IdentifierAwareInterface` and `Bisarca\Graph\Identifier\IdentifierAwareTrait`
+- edges documentation
 
 ### Deprecated
 - Nothing
@@ -13,7 +14,7 @@ All Notable changes to `bisarca/graph` will be documented in this file.
 - Nothing
 
 ### Remove
-- Nothing
+- replaced `Edge::*VertexStart` and `Edge::*VertexEnd` with `Edge::*Source` and `Edge::*Target`
 
 ### Security
 - Nothing

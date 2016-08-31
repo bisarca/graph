@@ -36,62 +36,62 @@ class LoopTraitTest extends TestCase
         $edge1 = $this->getMockForTrait(LoopTrait::class);
         $edge1
             ->expects($this->once())
-            ->method('hasVertexStart')
+            ->method('hasSource')
             ->willReturn(false);
         $edge1
             ->expects($this->never())
-            ->method('hasVertexEnd');
+            ->method('hasTarget');
 
         $edge2 = $this->getMockForTrait(LoopTrait::class);
         $edge2
             ->expects($this->once())
-            ->method('hasVertexStart')
+            ->method('hasSource')
             ->willReturn(true);
         $edge2
             ->expects($this->once())
-            ->method('hasVertexEnd')
+            ->method('hasTarget')
             ->willReturn(false);
         $edge2
             ->expects($this->never())
-            ->method('getVertexStart');
+            ->method('getSource');
 
         $edge3 = $this->getMockForTrait(LoopTrait::class);
         $edge3
             ->expects($this->once())
-            ->method('hasVertexStart')
+            ->method('hasSource')
             ->willReturn(true);
         $edge3
             ->expects($this->once())
-            ->method('hasVertexEnd')
+            ->method('hasTarget')
             ->willReturn(true);
         $edge3
             ->expects($this->once())
-            ->method('getVertexStart')
+            ->method('getSource')
             ->willReturn($this->getMock(VertexInterface::class));
         $edge3
             ->expects($this->once())
-            ->method('getVertexEnd')
+            ->method('getTarget')
             ->willReturn($this->getMock(VertexInterface::class));
 
         $edge4 = $this->getMockForTrait(LoopTrait::class);
         $edge4
             ->expects($this->once())
-            ->method('hasVertexStart')
+            ->method('hasSource')
             ->willReturn(true);
         $edge4
             ->expects($this->once())
-            ->method('hasVertexEnd')
+            ->method('hasTarget')
             ->willReturn(true);
 
         $vertex = $this->getMock(VertexInterface::class);
 
         $edge4
             ->expects($this->once())
-            ->method('getVertexStart')
+            ->method('getSource')
             ->willReturn($vertex);
         $edge4
             ->expects($this->once())
-            ->method('getVertexEnd')
+            ->method('getTarget')
             ->willReturn($vertex);
 
         return [

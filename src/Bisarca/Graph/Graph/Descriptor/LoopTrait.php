@@ -56,7 +56,7 @@ trait LoopTrait
         foreach ($this->getEdgeSet() as $edge) {
             $loop = $loop || (
                 $edge->isLoop() &&
-                $vertex === $edge->getVertexStart()
+                $vertex === $edge->getSource()
             );
         }
 

@@ -23,28 +23,28 @@ trait LoopTrait
      *
      * @return bool
      */
-    abstract public function hasVertexStart(): bool;
+    abstract public function hasSource(): bool;
 
     /**
      * Gets the starting vertex.
      *
      * @return VertexInterface
      */
-    abstract public function getVertexStart(): VertexInterface;
+    abstract public function getSource(): VertexInterface;
 
     /**
      * Checks if the edge has an ending vertex.
      *
      * @return bool
      */
-    abstract public function hasVertexEnd(): bool;
+    abstract public function hasTarget(): bool;
 
     /**
      * Gets the ending vertex.
      *
      * @return VertexInterface
      */
-    abstract public function getVertexEnd(): VertexInterface;
+    abstract public function getTarget(): VertexInterface;
 
     /**
      * Checks if the edge is a loop.
@@ -53,7 +53,7 @@ trait LoopTrait
      */
     public function isLoop(): bool
     {
-        return $this->hasVertexStart() && $this->hasVertexEnd() &&
-            $this->getVertexStart() === $this->getVertexEnd();
+        return $this->hasSource() && $this->hasTarget() &&
+            $this->getSource() === $this->getTarget();
     }
 }

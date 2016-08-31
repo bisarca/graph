@@ -39,77 +39,77 @@ class EdgeTest extends TestCase
         $this->object = new Edge();
     }
 
-    public function testSetVertexStart()
+    public function testSetSource()
     {
         $vertex = $this->createMock(VertexInterface::class);
-        $this->object->setVertexStart($vertex);
+        $this->object->setSource($vertex);
 
-        $property = new ReflectionProperty(Edge::class, 'vertexStart');
+        $property = new ReflectionProperty(Edge::class, 'source');
         $property->setAccessible(true);
 
         $this->assertSame($vertex, $property->getValue($this->object));
     }
 
     /**
-     * @depends testSetVertexStart
+     * @depends testSetSource
      */
-    public function testHasVertexStart()
+    public function testHasSource()
     {
-        $this->assertFalse($this->object->hasVertexStart());
+        $this->assertFalse($this->object->hasSource());
 
-        $this->object->setVertexStart(
+        $this->object->setSource(
             $this->createMock(VertexInterface::class)
         );
-        $this->assertTrue($this->object->hasVertexStart());
+        $this->assertTrue($this->object->hasSource());
     }
 
     /**
-     * @depends testSetVertexStart
+     * @depends testSetSource
      */
-    public function testGetVertexStart()
+    public function testGetSource()
     {
         $vertex = $this->createMock(VertexInterface::class);
-        $this->object->setVertexStart($vertex);
+        $this->object->setSource($vertex);
 
-        $this->assertSame($vertex, $this->object->getVertexStart());
+        $this->assertSame($vertex, $this->object->getSource());
     }
 
-    public function testSetVertexEnd()
+    public function testSetTarget()
     {
         $vertex = $this->createMock(VertexInterface::class);
-        $this->object->setVertexEnd($vertex);
+        $this->object->setTarget($vertex);
 
-        $property = new ReflectionProperty(Edge::class, 'vertexEnd');
+        $property = new ReflectionProperty(Edge::class, 'target');
         $property->setAccessible(true);
 
         $this->assertSame($vertex, $property->getValue($this->object));
     }
 
     /**
-     * @depends testSetVertexEnd
+     * @depends testSetTarget
      */
-    public function testHasVertexEnd()
+    public function testHasTarget()
     {
-        $this->assertFalse($this->object->hasVertexEnd());
+        $this->assertFalse($this->object->hasTarget());
 
-        $this->object->setVertexEnd($this->createMock(VertexInterface::class));
-        $this->assertTrue($this->object->hasVertexEnd());
+        $this->object->setTarget($this->createMock(VertexInterface::class));
+        $this->assertTrue($this->object->hasTarget());
     }
 
     /**
-     * @depends testSetVertexEnd
+     * @depends testSetTarget
      */
-    public function testGetVertexEnd()
+    public function testGetTarget()
     {
         $vertex = $this->createMock(VertexInterface::class);
-        $this->object->setVertexEnd($vertex);
+        $this->object->setTarget($vertex);
 
-        $this->assertSame($vertex, $this->object->getVertexEnd());
+        $this->assertSame($vertex, $this->object->getTarget());
     }
 
     /**
-     * @depends testSetVertexStart
-     * @depends testSetVertexEnd
+     * @depends testSetSource
+     * @depends testSetTarget
      *
      * @dataProvider isLoopDataProvider
      */
@@ -119,10 +119,10 @@ class EdgeTest extends TestCase
         bool $expected
     ) {
         if (null !== $vertex1) {
-            $this->object->setVertexStart($vertex1);
+            $this->object->setSource($vertex1);
         }
         if (null !== $vertex2) {
-            $this->object->setVertexEnd($vertex2);
+            $this->object->setTarget($vertex2);
         }
 
         $this->assertSame($expected, $this->object->isLoop());

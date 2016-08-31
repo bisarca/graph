@@ -5,6 +5,27 @@ graphs are constructed. Each edge has on or two vertices to
 which it is attached, called its endpoints.
 
 
+An edge has exactly two endpoints: a *source* vertex and a *target* vertex.
+
+An example duplicating an edge, vertex by vertex:
+
+```php
+use Bisarca\Graph\Edge\Edge;
+use Bisarca\Graph\Vertex\Vertex;
+
+$originalEdge = new Edge(/* ... */);
+$newEdge = new Edge();
+
+if (!$newEdge->hasSource()) {
+    $newEdge->setSource($originalEdge->getSource());
+}
+
+if (!$newEdge->hasTarget()) {
+    $newEdge->setTarget($originalEdge->getTarget());
+}
+```
+
+
 ## Descriptors
 
 The `Edge` class contains many method those help to describe the edge itself.

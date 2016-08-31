@@ -59,7 +59,7 @@ trait DegreeTrait
         $counter = 0;
 
         foreach ($this->getEdgeSet() as $edge) {
-            $counter += $edge->hasVertexEnd() && $vertex === $edge->getVertexEnd();
+            $counter += $edge->hasTarget() && $vertex === $edge->getTarget();
         }
 
         return $counter;
@@ -77,7 +77,7 @@ trait DegreeTrait
         $counter = 0;
 
         foreach ($this->getEdgeSet() as $edge) {
-            $counter += $edge->hasVertexStart() && $vertex === $edge->getVertexStart();
+            $counter += $edge->hasSource() && $vertex === $edge->getSource();
         }
 
         return $counter;

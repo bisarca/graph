@@ -13,6 +13,8 @@ namespace Bisarca\Graph;
 
 use Bisarca\Graph\Attribute\AttributeAwareInterface;
 use Bisarca\Graph\Attribute\AttributeAwareTrait;
+use Bisarca\Graph\Identifier\IdentifierAwareInterface;
+use Bisarca\Graph\Identifier\IdentifierAwareTrait;
 use Countable;
 use IteratorAggregate;
 use Traversable;
@@ -20,9 +22,10 @@ use Traversable;
 /**
  * Abstract set of utilities for internal sets.
  */
-abstract class AbstractSet implements AttributeAwareInterface, Countable, IteratorAggregate
+abstract class AbstractSet implements AttributeAwareInterface, Countable, IteratorAggregate, IdentifierAwareInterface
 {
     use AttributeAwareTrait;
+    use IdentifierAwareTrait;
 
     /**
      * Contained elements.

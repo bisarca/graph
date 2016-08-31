@@ -12,6 +12,7 @@
 namespace Bisarca\Graph;
 
 use Bisarca\Graph\Attribute\AttributeAwareTraitTestTrait;
+use Bisarca\Graph\Identifier\IdentifierAwareTraitTestTrait;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use Traversable;
@@ -23,6 +24,7 @@ use Traversable;
 class AbstractSetTest extends TestCase
 {
     use AttributeAwareTraitTestTrait;
+    use IdentifierAwareTraitTestTrait;
 
     /**
      * @var AbstractSet

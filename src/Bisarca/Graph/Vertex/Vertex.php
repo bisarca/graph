@@ -13,11 +13,14 @@ namespace Bisarca\Graph\Vertex;
 
 use Bisarca\Graph\Attribute\AttributeAwareInterface;
 use Bisarca\Graph\Attribute\AttributeAwareTrait;
+use Bisarca\Graph\Identifier\IdentifierAwareInterface;
+use Bisarca\Graph\Identifier\IdentifierAwareTrait;
 
 /**
  * Basic vertex element implementation.
  */
-class Vertex implements VertexInterface, AttributeAwareInterface
+class Vertex implements VertexInterface, AttributeAwareInterface, IdentifierAwareInterface
 {
     use AttributeAwareTrait;
+    use IdentifierAwareTrait;
 }

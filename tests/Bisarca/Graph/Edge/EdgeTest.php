@@ -12,6 +12,7 @@
 namespace Bisarca\Graph\Edge;
 
 use Bisarca\Graph\Attribute\AttributeAwareTraitTestTrait;
+use Bisarca\Graph\Identifier\IdentifierAwareTraitTestTrait;
 use Bisarca\Graph\Vertex\VertexInterface;
 use PHPUnit\Framework\TestCase;
 use ReflectionProperty;
@@ -23,6 +24,7 @@ use ReflectionProperty;
 class EdgeTest extends TestCase
 {
     use AttributeAwareTraitTestTrait;
+    use IdentifierAwareTraitTestTrait;
 
     /**
      * @var Edge

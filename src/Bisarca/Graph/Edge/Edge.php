@@ -13,15 +13,18 @@ namespace Bisarca\Graph\Edge;
 
 use Bisarca\Graph\Attribute\AttributeAwareInterface;
 use Bisarca\Graph\Attribute\AttributeAwareTrait;
+use Bisarca\Graph\Identifier\IdentifierAwareInterface;
+use Bisarca\Graph\Identifier\IdentifierAwareTrait;
 use Bisarca\Graph\Vertex\VertexInterface;
 
 /**
  * Basic edge implementation.
  */
-class Edge implements EdgeInterface, AttributeAwareInterface
+class Edge implements EdgeInterface, AttributeAwareInterface, IdentifierAwareInterface
 {
     use AttributeAwareTrait;
     use Descriptor\LoopTrait;
+    use IdentifierAwareTrait;
 
     /**
      * Starting vertex.

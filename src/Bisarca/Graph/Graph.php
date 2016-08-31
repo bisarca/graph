@@ -13,18 +13,21 @@ namespace Bisarca\Graph;
 
 use Bisarca\Graph\Edge\Set as EdgeSet;
 use Bisarca\Graph\Graph\Descriptor;
+use Bisarca\Graph\Identifier\IdentifierAwareInterface;
+use Bisarca\Graph\Identifier\IdentifierAwareTrait;
 use Bisarca\Graph\Vertex\Set as VertexSet;
 
 /**
  * Basic graph implementation.
  */
-class Graph implements GraphInterface
+class Graph implements GraphInterface, IdentifierAwareInterface
 {
     use Descriptor\DegreeTrait;
     use Descriptor\LoopTrait;
     use Descriptor\OrderTrait;
     use Descriptor\SizeTrait;
     use Edge\SetTrait;
+    use IdentifierAwareTrait;
     use Vertex\SetTrait;
 
     /**

@@ -9,23 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace Bisarca\Graph\Vertex;
+namespace Bisarca\Graph\Identifier;
 
-use Bisarca\Graph\Attribute\AttributeAwareTraitTestTrait;
-use Bisarca\Graph\Identifier\IdentifierAwareTraitTestTrait;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers Bisarca\Graph\Vertex\Vertex
+ * @covers Bisarca\Graph\Identifier\IdentifierAwareTrait
  * @group unit
  */
-class VertexTest extends TestCase
+class IdentifierAwareTraitTest extends TestCase
 {
-    use AttributeAwareTraitTestTrait;
     use IdentifierAwareTraitTestTrait;
 
     /**
-     * @var Vertex
+     * @var IdentifierAwareTrait
      */
     protected $object;
 
@@ -34,6 +31,6 @@ class VertexTest extends TestCase
      */
     protected function setUp()
     {
-        $this->object = new Vertex();
+        $this->object = $this->getMockForTrait(IdentifierAwareTrait::class);
     }
 }

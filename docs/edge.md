@@ -26,6 +26,23 @@ if (!$newEdge->hasTarget()) {
 ```
 
 
+## Directed Edges
+
+Edges by default are undirected, to define edges as directed, use the `Bisarca\Graph\Edge\DirectedEdgeInterface` interface or the `Bisarca\Graph\Edge\DirectedEdge` implementation.
+
+Example:
+
+```php
+use Bisarca\Graph\Edge;
+
+class FriendshipEdge extends Edge\Edge {}
+// class FriendshipEdge implements Edge\EdgeInterface {}
+
+class FollowingEdge extends Edge\DirectedEdge {}
+// class FollowingEdge implements Edge\DirectedEdgeInterface {}
+```
+
+
 ## Descriptors
 
 The `Edge` class contains many method those help to describe the edge itself.

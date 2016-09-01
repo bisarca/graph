@@ -12,6 +12,7 @@
 namespace Bisarca\Graph\Vertex;
 
 use Bisarca\Graph\AbstractSetTest;
+use Bisarca\Graph\Graph;
 use ReflectionProperty;
 
 /**
@@ -35,7 +36,9 @@ class SetTest extends AbstractSetTest
 
     protected function getElement()
     {
-        return $this->createMock(VertexInterface::class);
+        return mt_rand(0, 1)
+            ? $this->createMock(VertexInterface::class)
+            : $this->createMock(Graph::class);
     }
 
     public function testConstruct()

@@ -50,6 +50,10 @@ class AbstractSetTest extends TestCase
             Traversable::class,
             $this->object->getIterator()
         );
+
+        foreach ($this->object->getIterator() as $item) {
+            $this->assertNotEmpty($item);
+        }
     }
 
     public function testClear()

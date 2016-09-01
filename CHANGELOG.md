@@ -8,6 +8,7 @@ All Notable changes to `bisarca/graph` will be documented in this file.
 - edges documentation
 - added directed edges with interface
 - created a new level for the hierarchy of edges interfaces: `GenericEdgeInterface`
+- allow nested graphs
 
 ### Deprecated
 - Nothing

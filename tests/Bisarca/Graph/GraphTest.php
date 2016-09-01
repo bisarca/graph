@@ -21,13 +21,12 @@ use Bisarca\Graph\Graph\Descriptor;
 use Bisarca\Graph\Vertex\Set as VertexSet;
 use Bisarca\Graph\Vertex\SetTraitTestTrait as VerticesTestTrait;
 use Bisarca\Graph\Vertex\VertexInterface;
-use PHPUnit\Framework\TestCase;
 
 /**
  * @covers Bisarca\Graph\Graph
  * @group unit
  */
-class GraphTest extends TestCase
+class GraphTest extends Vertex\VertexTest
 {
     use AttributeAwareTraitTestTrait;
     use Descriptor\DegreeTraitTestTrait;
@@ -107,5 +106,23 @@ class GraphTest extends TestCase
 
         $this->assertCount(1, $this->object->getEdgeSet());
         $this->assertCount(2, $this->object->getVertexSet());
+    }
+
+    /**
+     * @depends testGetVertexSet
+     */
+    public function testAddNestedGraph()
+    {
+        $nestedGraph = new Graph();
+
+        $this->object
+            ->getVertexSet()
+            ->add($nestedGraph);
+
+        $this->assertTrue(
+            $this->object
+                ->getVertexSet()
+                ->has($nestedGraph)
+        );
     }
 }

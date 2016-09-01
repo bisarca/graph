@@ -41,6 +41,20 @@ $edges = new Edges();
 $graph = new Graph($vertices, $edges);
 ```
 
+You can also attach nested graphs, because a graph can be considered a vertex too.
+**Attention:** only the basic implementation is considered a vertex, if you
+want to declare your graph as a vertex you'll need to implement both the `GraphInterface` and the `VertexInterface`.
+
+```php
+use Bisarca\Graph\Graph;
+
+$vertices = $graph->getVertexSet(); // Bisarca\Graph\Vertex\Set
+
+$vertices->add(new Graph());
+
+$graph->setVertexSet($vertices);
+```
+
 
 ## Descriptors
 

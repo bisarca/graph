@@ -20,7 +20,7 @@ use Bisarca\Graph\Vertex\Set as VertexSet;
 /**
  * Basic graph implementation.
  */
-class Graph implements GraphInterface, IdentifierAwareInterface
+class Graph extends Vertex\Vertex implements GraphInterface, IdentifierAwareInterface
 {
     use Descriptor\DegreeTrait;
     use Descriptor\LoopTrait;

@@ -21,9 +21,9 @@ class Set extends AbstractSet
     /**
      * Sets the optional contained edges.
      *
-     * @param EdgeInterface[] $edges
+     * @param GenericEdgeInterface[] $edges
      */
-    public function __construct(EdgeInterface ...$edges)
+    public function __construct(GenericEdgeInterface ...$edges)
     {
         $this->data = $edges;
     }
@@ -31,9 +31,9 @@ class Set extends AbstractSet
     /**
      * Sets the contained edges.
      *
-     * @param EdgeInterface[] $edges
+     * @param GenericEdgeInterface[] $edges
      */
-    public function set(EdgeInterface ...$edges)
+    public function set(GenericEdgeInterface ...$edges)
     {
         $this->data = $edges;
     }
@@ -41,9 +41,9 @@ class Set extends AbstractSet
     /**
      * Adds some edges.
      *
-     * @param EdgeInterface[] $edges
+     * @param GenericEdgeInterface[] $edges
      */
-    public function add(EdgeInterface ...$edges)
+    public function add(GenericEdgeInterface ...$edges)
     {
         $this->data = array_merge($this->data, $edges);
     }
@@ -51,16 +51,16 @@ class Set extends AbstractSet
     /**
      * Checks if all the edges are contained.
      *
-     * @param EdgeInterface[] $edges
+     * @param GenericEdgeInterface[] $edges
      *
      * @return bool
      */
-    public function has(EdgeInterface ...$edges): bool
+    public function has(GenericEdgeInterface ...$edges): bool
     {
         $intersection = array_uintersect(
             $this->data,
             $edges,
-            function (EdgeInterface $a, EdgeInterface $b) {
+            function (GenericEdgeInterface $a, GenericEdgeInterface $b) {
                 return $a !== $b;
             }
         );
@@ -71,14 +71,14 @@ class Set extends AbstractSet
     /**
      * Removes some edges.
      *
-     * @param EdgeInterface[] $edges
+     * @param GenericEdgeInterface[] $edges
      */
-    public function remove(EdgeInterface ...$edges)
+    public function remove(GenericEdgeInterface ...$edges)
     {
         $this->data = array_udiff(
             $this->data,
             $edges,
-            function (EdgeInterface $a, EdgeInterface $b) {
+            function (GenericEdgeInterface $a, GenericEdgeInterface $b) {
                 return $a !== $b;
             }
         );

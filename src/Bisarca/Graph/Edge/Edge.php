@@ -15,6 +15,7 @@ use Bisarca\Graph\Attribute\AttributeAwareInterface;
 use Bisarca\Graph\Attribute\AttributeAwareTrait;
 use Bisarca\Graph\Identifier\IdentifierAwareInterface;
 use Bisarca\Graph\Identifier\IdentifierAwareTrait;
+use Bisarca\Graph\Vertex\Set as VertexSet;
 use Bisarca\Graph\Vertex\VertexInterface;
 
 /**
@@ -97,5 +98,21 @@ class Edge implements EdgeInterface, AttributeAwareInterface, IdentifierAwareInt
     public function setTarget(VertexInterface $target)
     {
         $this->target = $target;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getVertexSet(): VertexSet
+    {
+        $vertices = [];
+        if (null !== $this->source) {
+            $vertices[] = $this->source;
+        }
+        if (null !== $this->target) {
+            $vertices[] = $this->target;
+        }
+
+        return new VertexSet(...$vertices);
     }
 }

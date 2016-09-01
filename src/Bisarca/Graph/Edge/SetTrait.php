@@ -26,9 +26,9 @@ trait SetTrait
     /**
      * Sets the contained edges.
      *
-     * @param EdgeInterface[] $edges
+     * @param GenericEdgeInterface[] $edges
      */
-    public function setEdges(EdgeInterface ...$edges)
+    public function setEdges(GenericEdgeInterface ...$edges)
     {
         $this
             ->getEdgeSet()
@@ -38,9 +38,9 @@ trait SetTrait
     /**
      * Adds some edges.
      *
-     * @param EdgeInterface[] $edges
+     * @param GenericEdgeInterface[] $edges
      */
-    public function addEdges(EdgeInterface ...$edges)
+    public function addEdges(GenericEdgeInterface ...$edges)
     {
         $this
             ->getEdgeSet()
@@ -50,11 +50,11 @@ trait SetTrait
     /**
      * Checks if all the edges are contained.
      *
-     * @param EdgeInterface[] $edges
+     * @param GenericEdgeInterface[] $edges
      *
      * @return bool
      */
-    public function hasEdges(EdgeInterface ...$edges): bool
+    public function hasEdges(GenericEdgeInterface ...$edges): bool
     {
         return $this
             ->getEdgeSet()
@@ -64,9 +64,9 @@ trait SetTrait
     /**
      * Removes some edges.
      *
-     * @param EdgeInterface[] $edges
+     * @param GenericEdgeInterface[] $edges
      */
-    public function removeEdges(EdgeInterface ...$edges)
+    public function removeEdges(GenericEdgeInterface ...$edges)
     {
         $this
             ->getEdgeSet()

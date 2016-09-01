@@ -13,6 +13,7 @@ namespace Bisarca\Graph\Edge;
 
 use Bisarca\Graph\Attribute\AttributeAwareTraitTestTrait;
 use Bisarca\Graph\Identifier\IdentifierAwareTraitTestTrait;
+use Bisarca\Graph\Vertex\Set as VertexSet;
 use Bisarca\Graph\Vertex\VertexInterface;
 use PHPUnit\Framework\TestCase;
 use ReflectionProperty;
@@ -143,6 +144,48 @@ class EdgeTest extends TestCase
             [$vertex2, $vertex2, true],
             [null, $vertex2, false],
             [null, null, false],
+        ];
+    }
+
+    /**
+     * @depends testSetSource
+     * @depends testSetTarget
+     *
+     * @dataProvider getVertexSetDataProvider
+     */
+    public function testGetVertexSet(
+        VertexInterface $vertex1 = null,
+        VertexInterface $vertex2 = null,
+        int $expected
+    ) {
+        if (null !== $vertex1) {
+            $this->object->setSource($vertex1);
+        }
+        if (null !== $vertex2) {
+            $this->object->setTarget($vertex2);
+        }
+
+        $vertexSet = $this->object->getVertexSet();
+
+        $this->assertInstanceOf(VertexSet::class, $vertexSet);
+        $this->assertCount($expected, $vertexSet);
+    }
+
+    /**
+     * @return array
+     */
+    public function getVertexSetDataProvider(): array
+    {
+        $vertex1 = $this->createMock(VertexInterface::class);
+        $vertex2 = $this->createMock(VertexInterface::class);
+
+        return [
+            [$vertex1, $vertex1, 2],
+            [$vertex1, $vertex2, 2],
+            [$vertex1, null, 1],
+            [$vertex2, $vertex2, 2],
+            [null, $vertex2, 1],
+            [null, null, 0],
         ];
     }
 }

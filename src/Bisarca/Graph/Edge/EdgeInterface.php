@@ -14,9 +14,9 @@ namespace Bisarca\Graph\Edge;
 use Bisarca\Graph\Vertex\VertexInterface;
 
 /**
- * Interface used to implement an undirected edge.
+ * Interface used to implement undirected edges.
  */
-interface EdgeInterface
+interface EdgeInterface extends GenericEdgeInterface
 {
     /**
      * Constructor for (optional) edge' vertices initialization.

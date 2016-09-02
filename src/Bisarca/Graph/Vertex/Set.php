@@ -57,15 +57,15 @@ class Set extends AbstractSet
      */
     public function has(VertexInterface ...$vertices): bool
     {
-        $intersection = array_uintersect(
-            $this->data,
-            $vertices,
-            function (VertexInterface $a, VertexInterface $b) {
-                return $a !== $b;
-            }
-        );
+        $contained = true;
 
-        return count($intersection) === count($vertices);
+        foreach ($vertices as $vertex) {
+            $contained = $contained && (
+                false !== array_search($vertex, $this->data, true)
+            );
+        }
+
+        return $contained;
     }
 
     /**

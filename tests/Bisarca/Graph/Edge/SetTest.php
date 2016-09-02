@@ -101,6 +101,39 @@ class SetTest extends AbstractSetTest
     }
 
     /**
+     * @dataProvider hasWithMoreElementsDataProvider
+     */
+    public function testHasWithMoreElements(
+        array $set1,
+        array $set2,
+        bool $expected
+    ) {
+        $this->object->set(...$set1);
+        $this->assertSame($expected, $this->object->has(...$set2));
+    }
+
+    /**
+     * @return array
+     */
+    public function hasWithMoreElementsDataProvider(): array
+    {
+        $edges = [];
+        for ($i = 0; $i < 3; ++$i) {
+            $edges[] = $this->getElement();
+        }
+
+        return [
+            [[$edges[0], $edges[1]], [$edges[0]], true],
+            [[$edges[0], $edges[2]], [$edges[0], $edges[1]], false],
+            [[$edges[0]], [$edges[0], $edges[1]], false],
+            [[$edges[0]], [$edges[1]], false],
+            [[$edges[0]], [], true],
+            [[], [$edges[0]], false],
+            [[], [], true],
+        ];
+    }
+
+    /**
      * @depends testHas
      * @depends testSet
      */

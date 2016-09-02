@@ -57,15 +57,15 @@ class Set extends AbstractSet
      */
     public function has(GenericEdgeInterface ...$edges): bool
     {
-        $intersection = array_uintersect(
-            $this->data,
-            $edges,
-            function (GenericEdgeInterface $a, GenericEdgeInterface $b) {
-                return $a !== $b;
-            }
-        );
+        $contained = true;
 
-        return count($intersection) === count($edges);
+        foreach ($edges as $edge) {
+            $contained = $contained && (
+                false !== array_search($edge, $this->data, true)
+            );
+        }
+
+        return $contained;
     }
 
     /**

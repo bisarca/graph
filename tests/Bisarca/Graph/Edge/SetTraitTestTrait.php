@@ -37,6 +37,39 @@ trait SetTraitTestTrait
         $this->assertTrue($this->object->hasEdges($edge));
     }
 
+    /**
+     * @dataProvider hasEdgesWithMoreElementsDataProvider
+     */
+    public function testHasEdgesWithMoreElements(
+        array $set1,
+        array $set2,
+        bool $expected
+    ) {
+        $this->object->setEdges(...$set1);
+        $this->assertSame($expected, $this->object->hasEdges(...$set2));
+    }
+
+    /**
+     * @return array
+     */
+    public function hasEdgesWithMoreElementsDataProvider(): array
+    {
+        $edges = [];
+        for ($i = 0; $i < 3; ++$i) {
+            $edges[] = $this->createMock(EdgeInterface::class);
+        }
+
+        return [
+            [[$edges[0], $edges[1]], [$edges[0]], true],
+            [[$edges[0], $edges[2]], [$edges[0], $edges[1]], false],
+            [[$edges[0]], [$edges[0], $edges[1]], false],
+            [[$edges[0]], [$edges[1]], false],
+            [[$edges[0]], [], true],
+            [[], [$edges[0]], false],
+            [[], [], true],
+        ];
+    }
+
     public function testRemoveEdges()
     {
         $edge = $this->createMock(EdgeInterface::class);

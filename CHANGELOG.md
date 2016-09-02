@@ -14,7 +14,7 @@ All Notable changes to `bisarca/graph` will be documented in this file.
 - Nothing
 
 ### Fixed
-- Nothing
+- fixed wrong `::has(/* multiple elements */)` behaviour
 
 ### Remove
 - replaced `Edge::*VertexStart` and `Edge::*VertexEnd` with `Edge::*Source` and `Edge::*Target`

@@ -15,16 +15,24 @@ trait SetTraitTestTrait
 {
     public function testSetEdges()
     {
-        $edge = $this->createMock(EdgeInterface::class);
+        $edges = array_fill(
+            0,
+            mt_rand(0, 10),
+            $this->createMock(EdgeInterface::class)
+        );
 
-        $this->object->setEdges($edge);
+        $this->object->setEdges(...$edges);
     }
 
     public function testAddEdges()
     {
-        $edge = $this->createMock(EdgeInterface::class);
+        $edges = array_fill(
+            0,
+            mt_rand(0, 10),
+            $this->createMock(EdgeInterface::class)
+        );
 
-        $this->object->addEdges($edge);
+        $this->object->addEdges(...$edges);
     }
 
     public function testHasEdges()

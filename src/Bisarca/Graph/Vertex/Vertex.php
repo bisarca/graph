@@ -19,8 +19,9 @@ use Bisarca\Graph\Identifier\IdentifierAwareTrait;
 /**
  * Basic vertex element implementation.
  */
-class Vertex implements VertexInterface, AttributeAwareInterface, IdentifierAwareInterface
+class Vertex implements VertexInterface, AttributeAwareInterface, IdentifierAwareInterface, PortAwareInterface
 {
     use AttributeAwareTrait;
     use IdentifierAwareTrait;
+    use PortAwareTrait;
 }

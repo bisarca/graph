@@ -11,22 +11,18 @@
 
 namespace Bisarca\Graph\Vertex;
 
-use Bisarca\Graph\Attribute\AttributeAwareTraitTestTrait;
-use Bisarca\Graph\Identifier\IdentifierAwareTraitTestTrait;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers Bisarca\Graph\Vertex\Vertex
+ * @covers Bisarca\Graph\Vertex\PortAwareTrait
  * @group unit
  */
-class VertexTest extends TestCase
+class PortAwareTraitTest extends TestCase
 {
-    use AttributeAwareTraitTestTrait;
-    use IdentifierAwareTraitTestTrait;
     use PortAwareTraitTestTrait;
 
     /**
-     * @var Vertex
+     * @var PortAwareTrait
      */
     protected $object;
 
@@ -35,6 +31,6 @@ class VertexTest extends TestCase
      */
     protected function setUp()
     {
-        $this->object = new Vertex();
+        $this->object = $this->getMockForTrait(PortAwareTrait::class);
     }
 }

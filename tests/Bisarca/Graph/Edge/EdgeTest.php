@@ -26,6 +26,7 @@ class EdgeTest extends TestCase
 {
     use AttributeAwareTraitTestTrait;
     use IdentifierAwareTraitTestTrait;
+    use PortAwareTraitTestTrait;
 
     /**
      * @var Edge

@@ -21,11 +21,12 @@ use Bisarca\Graph\Vertex\VertexInterface;
 /**
  * Basic edge implementation.
  */
-class Edge implements EdgeInterface, AttributeAwareInterface, IdentifierAwareInterface
+class Edge implements EdgeInterface, AttributeAwareInterface, IdentifierAwareInterface, PortAwareInterface
 {
     use AttributeAwareTrait;
     use Descriptor\LoopTrait;
     use IdentifierAwareTrait;
+    use PortAwareTrait;
 
     /**
      * Starting vertex.

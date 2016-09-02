@@ -15,16 +15,29 @@ trait SetTraitTestTrait
 {
     public function testSetVertices()
     {
-        $vertex = $this->createMock(VertexInterface::class);
+        $vertices = array_fill(
+            0,
+            mt_rand(0, 10),
+            $this->createMock(VertexInterface::class)
+        );
 
-        $this->object->setVertices($vertex);
+        $this->object->setVertices(...$vertices);
+        $this->assertCount(count($vertices), $this->object->getVertexSet());
     }
 
     public function testAddVertices()
     {
-        $vertex = $this->createMock(VertexInterface::class);
+        $vertices = array_fill(
+            0,
+            mt_rand(0, 10),
+            $this->createMock(VertexInterface::class)
+        );
 
-        $this->object->addVertices($vertex);
+        $this->object->addVertices(...$vertices);
+        $this->assertCount(count($vertices), $this->object->getVertexSet());
+
+        $this->object->addVertices($this->createMock(VertexInterface::class));
+        $this->assertCount(count($vertices) + 1, $this->object->getVertexSet());
     }
 
     public function testHasVertices()

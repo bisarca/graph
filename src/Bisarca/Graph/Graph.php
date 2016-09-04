@@ -23,6 +23,7 @@ use Bisarca\Graph\Vertex\Set as VertexSet;
 class Graph extends Vertex\Vertex implements GraphInterface, IdentifierAwareInterface
 {
     use Descriptor\DegreeTrait;
+    use Descriptor\DigraphTrait;
     use Descriptor\LoopTrait;
     use Descriptor\OrderTrait;
     use Descriptor\SizeTrait;

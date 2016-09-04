@@ -10,6 +10,7 @@ All Notable changes to `bisarca/graph` will be documented in this file.
 - created a new level for the hierarchy of edges interfaces: `GenericEdgeInterface`
 - allow nested graphs
 - `Port` interfaces and implementations
+- digraph utility
 
 ### Deprecated
 - Nothing

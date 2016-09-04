@@ -30,6 +30,7 @@ class GraphTest extends Vertex\VertexTest
 {
     use AttributeAwareTraitTestTrait;
     use Descriptor\DegreeTraitTestTrait;
+    use Descriptor\DigraphTraitTestTrait;
     use Descriptor\LoopTraitTestTrait;
     use Descriptor\OrderTraitTestTrait;
     use Descriptor\SizeTraitTestTrait;

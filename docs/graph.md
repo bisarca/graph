@@ -170,3 +170,26 @@ if ($graph->isDominatingVertex($vertex)) {
     // vertex with degree |V(G)| - 1
 }
 ```
+
+### Digraph
+
+This library doesn't force you to choose between a directed graph and an
+undirected graph before executing your code, so you can check if a graph is
+undirected or it's directed (a *digraph*) using the `isDigraph` utility.
+
+```php
+use Bisarca\Graph\Edge\DirectedEdge;
+use Bisarca\Graph\Edge\Edge;
+
+$graph
+    ->getEdgeSet()
+    ->add(new Edge(/* ... */));
+
+var_dump($graph->isDigraph()); // bool(false)
+
+$graph
+    ->getEdgeSet()
+    ->add(new DirectedEdge(/* ... */));
+
+var_dump($graph->isDigraph()); // bool(true)
+```

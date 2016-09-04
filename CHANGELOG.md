@@ -11,6 +11,7 @@ All Notable changes to `bisarca/graph` will be documented in this file.
 - allow nested graphs
 - `Port` interfaces and implementations
 - digraph utility
+- `HyperEdge` and `HyperEdge\Endpoint` interfaces and implementations
 
 ### Deprecated
 - Nothing
